@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+.container {
+    color: white;
+    padding: 2em;
+}
+
+.game-title {
+    font-size: 12px;
+    line-height: 1em;
+    text-transform: uppercase;
+    padding: 1em;
+}
+
+#score {
+    color: hsl(229, 25%, 31%);
+    font-size: 24px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home > div:first-of-type {
+    padding: 1em;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.home > div:first-of-type > div:last-of-type {
+    background: white;
+    padding: 0.5em 1.5em;
+}
+
+.home > div:first-of-type > div:last-of-type span:first-of-type {
+    color: hsl(229, 64%, 46%);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.available-moves {
+    background-image: url("images/pentagon.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.available-moves span {
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.available-moves > span {
+    width: 70px;
+    height: 70px;
+}
+
+.available-moves img {
+    width: 60%;
+}
+
+#scissors {
+    transform: translate(105px, 60px);
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    padding: 0.5em;
+}
+
+#scissors span, #paper span, #rock span, #lizard span, #spock span {
+    background-color: white;
+    padding: 0.5em;
+    width: 50px;
+    height: 50px;
+}
+
+#paper {
+    transform: translate(205px, 60px);
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    padding: 0.5em;
+}
+
+#rock {
+    transform: translate(170px, 100px);
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    padding: 0.5em;
+}
+
+#lizard {
+    transform: translate(40px, 15px);
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    padding: 0.5em;
+}
+
+#spock {
+    transform: translate(0px, -195px);
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    padding: 0.5em;
+}
+
+.picked {
+    width: 100%;
+    max-width: 300px;
+}
+
+#rules {
+    text-transform: uppercase;
+    padding: 0.5em 1.5em;
+    border: 1px solid white;
+    text-align: center;
+    width: min-content;
+    align-self: center;
+    border-radius: 0.5em;
+    position: relative;
+    bottom: 0;
+}
+
+#rules-image {
+    position: absolute;
+    top: 0;
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rules-image div:first-of-type {
+    color: hsl(229, 25%, 31%);
+    font-size: 32px;
+    font-weight: bold;
+    margin: 2.5em 0 2.5em 0;
+}
+
+#rules-image img {
+    width: 80%;
+}
+
+#rules-image #close {
+    margin-top: 7em;
+    margin-bottom: 4em;
+}
+
+/*moves*/
+
+.moves {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5em;
+    
+}
+
+.move {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.move div {
+    height: 70px;
+    width: 70px;
+    margin-bottom: 2em;
+    border-radius: 50%;
+    background: hsla(238, 48%, 15%, 0.527);
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    margin-bottom: 2.5em;
+}
+
+.win, .lose, .tie {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.play-again {
+    color: hsl(229, 25%, 31%);
+    text-transform: uppercase;
+    padding: 0.5em 3em;
+    background: white;
+    margin-top: 1em;
+    border-radius: 0.5em;
+}
+
+
+
+/*picked div*/
+
+.computer-move, .player-move {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.move span {
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.move span {
+    height: 70px;
+    width: 70px;
+}
+
+.move span:last-of-type {
+    width: unset;
+}
+
+.move img {
+    width: 60%;
+}
+
+.move #scissors, .move #paper, .move #rock, .move #lizard, .move #spock {
+    transform: none;
+}
