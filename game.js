@@ -7,10 +7,30 @@ $(function() {
   var win = $('.win');
   var lose = $('.lose');
   var tie = $('.tie');
-
+  var scoreBoard = $('#score span');
+  var score = localStorage.getItem('score') || 0;
   win.hide();
   lose.hide();
   tie.hide();
+  scoreBoard.text(score);
+
+  function countScore() {
+    score++;
+    localStorage.setItem('score', score);
+    scoreBoard.fadeOut(function() {
+      scoreBoard.text(localStorage.getItem('score'));
+    }).fadeIn();
+  
+  }
+  
+  function loseScore() {
+    score--;
+    localStorage.setItem('score', score);
+    scoreBoard.fadeOut(function() {
+      scoreBoard.text(localStorage.getItem('score'));
+    }).fadeIn();
+  
+  }
 
   //display selected player move
 
@@ -21,22 +41,11 @@ $(function() {
 
     $('.picked').delay(300).fadeIn();
 
-    if (playerMove == 'scissors') {
-
-      $('.player-move').html('<span id="scissors"><span><img  src="images/icon-scissors.svg" alt=""></span></span>');
-
+    function setPlayerMove() {
+      $('.player-move').html('<span id="' + playerMove + '"><span><img  src="images/icon-' + playerMove + '.svg" alt=""></span></span>')
     }
-    else if (playerMove == 'paper') {
 
-      $('.player-move').html('<span id="paper"><span><img  src="images/icon-paper.svg" alt=""></span></span>');
-
-    } else if (playerMove == 'rock') {
-      $('.player-move').html('<span id="rock"><span><img  src="images/icon-rock.svg" alt=""></span></span>');
-    } else if (playerMove == 'lizard') {
-      $('.player-move').html('<span id="lizard"><span><img  src="images/icon-lizard.svg" alt=""></span></span>');
-    } else if (playerMove == 'spock') {
-      $('.player-move').html('<span id="spock"><span><img  src="images/icon-spock.svg" alt=""></span></span>');
-    }
+    setPlayerMove()
 
     //determine computer move
 
@@ -45,32 +54,35 @@ $(function() {
 
       num = Math.round(num);
 
+      function setComputerMove() {
+        $('.computer-move').html('<span id="' + computerMove + '"><span><img  src="images/icon-' + computerMove + '.svg" alt=""></span></span>');
+      }
+
       if (num == 1) {
         computerMove = "rock";
-        $('.computer-move').html('<span id="rock"><span><img  src="images/icon-rock.svg" alt=""></span></span>');
+        setComputerMove();
       }
       if (num == 2) {
         computerMove = "paper";
-        $('.computer-move').html('<span id="paper"><span><img  src="images/icon-paper.svg" alt=""></span></span>');
+        setComputerMove();
       }
       if (num == 3) {
         computerMove = "scissors";
-        $('.computer-move').html('<span id="scissors"><span><img  src="images/icon-scissors.svg" alt=""></span></span>');
+        setComputerMove();
       }
       if (num == 4) {
         computerMove = "lizard";
-        $('.computer-move').html('<span id="lizard"><span><img  src="images/icon-lizard.svg" alt=""></span></span>');
+        setComputerMove();
       }
       if (num == 5) {
         computerMove =
           "spock";
-        $('.computer-move').html('<span id="spock"><span><img  src="images/icon-spock.svg" alt=""></span></span>');
+        setComputerMove();
       }
 
       //determine win, loss, or tie, 
       //and show message
-      
-      scoreBoard = $('#score');
+
 
       switch (computerMove) {
         case 'rock':
@@ -80,28 +92,30 @@ $(function() {
           if (playerMove == 'paper') {
             $('.win').show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'scissors') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'lizard') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'spock') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           break;
 
         case 'paper':
           if (playerMove == 'rock') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'paper') {
             tie.show();
@@ -109,20 +123,18 @@ $(function() {
           if (playerMove == 'scissors') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
 
           }
           if (playerMove == 'lizard') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'spock') {
             lose.show();
+            
+            loseScore();
           }
           break;
 
@@ -130,25 +142,25 @@ $(function() {
           if (playerMove == 'rock') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'paper') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'scissors') {
             tie.show();
           }
           if (playerMove == 'lizard') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'spock') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           break;
 
@@ -156,48 +168,48 @@ $(function() {
           if (playerMove == 'rock') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'paper') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'scissors') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'lizard') {
             tie.show();
           }
           if (playerMove == 'spock') {
             lose.show();
+            
+            loseScore();
           }
           break;
 
         case 'spock':
           if (playerMove == 'rock') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'paper') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'scissors') {
             lose.show();
+            
+            loseScore();
           }
           if (playerMove == 'lizard') {
             win.show();
 
-            score++;
-            scoreBoard.fadeOut();
-            scoreBoard.delay(300).fadeIn().html(score);
+            countScore();
           }
           if (playerMove == 'spock') {
             tie.show();
@@ -210,7 +222,7 @@ $(function() {
 
   });
 
-  //to reset game
+  //reset game
 
   $('.play-again').on('click', function() {
 
@@ -240,14 +252,5 @@ $(function() {
 
   });
 
-  //record player score
-
-
-
-  var score = 0;
-  
-  localStorage.setItem('score', score);
-
-  score = localStorage.getItem('score');
 
 });
