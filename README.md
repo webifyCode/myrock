@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/rock-paper-scissors-nearly/design/desktop-preview.jpg)
+![](/design/desktop-preview.jpg)
 
 ### Links
 
