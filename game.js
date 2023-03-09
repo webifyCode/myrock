@@ -24,7 +24,7 @@ $(function() {
   }
   
   function loseScore() {
-    score--;
+    if (score <= 0) return;
     localStorage.setItem('score', score);
     scoreBoard.fadeOut(function() {
       scoreBoard.text(localStorage.getItem('score'));
