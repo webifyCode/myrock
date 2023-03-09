@@ -24,11 +24,16 @@ $(function() {
   }
   
   function loseScore() {
-    if (score <= 0) return;
+    if (score <= 0) {
+      return;
+} else {
+    score--;
     localStorage.setItem('score', score);
     scoreBoard.fadeOut(function() {
       scoreBoard.text(localStorage.getItem('score'));
     }).fadeIn();
+}
+    
   
   }
 
