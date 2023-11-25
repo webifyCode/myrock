@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Github repo](https://github.com/5erious5am/myrock)
-- Live Site URL: [Live Site](https://5erious5am.github.io/myrock)
+- Solution URL: [Github repo](https://github.com/webifyCode/myrock)
+- Live Site URL: [Live Site](https://webifyCode.github.io/myrock)
 
 ## My process
 
@@ -46,8 +46,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [Samuel Akinode](https://www.webifywebservices.com)
+- GitHub - [@webifyCode](https://github.com/webifyCode)
 - Frontend Mentor - [@5erious5am](https://www.frontendmentor.io/profile/5erious5am)
-- Github - [@5erious5am](https://www.github.com/5erious5am)
 
 
